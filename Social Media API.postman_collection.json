@@ -1,0 +1,476 @@
+{
+	"info": {
+		"_postman_id": "5a22a187-4601-41d5-9496-81d2d55eda46",
+		"name": "Social Media API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39468107"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "User 1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "user@123",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user1@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{$server}}/auth/register/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{$server}}/auth/login/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/users/5/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"users",
+								"5",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1MTExMzE4LCJpYXQiOjE3NDUwNzUzMTgsImp0aSI6ImExZTc2MzVmYjkxZDRiMDFiN2M5ZDAyZDQ5YTZjMGQ5IiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJhZG1pbiJ9.zWE6VeGwQK_biLs90XiPNO3C7QZKcYHE1kCgFpIKTZw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "bio",
+									"value": "This is the admin user",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{$server}}/users/5/update/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"users",
+								"5",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1MTExMzE4LCJpYXQiOjE3NDUwNzUzMTgsImp0aSI6ImExZTc2MzVmYjkxZDRiMDFiN2M5ZDAyZDQ5YTZjMGQ5IiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJhZG1pbiJ9.zWE6VeGwQK_biLs90XiPNO3C7QZKcYHE1kCgFpIKTZw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/users/5/delete/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"users",
+								"5",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/users/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "List All Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/posts/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/posts/3/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"posts",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1MTExMzE4LCJpYXQiOjE3NDUwNzUzMTgsImp0aSI6ImExZTc2MzVmYjkxZDRiMDFiN2M5ZDAyZDQ5YTZjMGQ5IiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJhZG1pbiJ9.zWE6VeGwQK_biLs90XiPNO3C7QZKcYHE1kCgFpIKTZw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "content",
+									"value": "This is a test post",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{$server}}/posts/create/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"posts",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1MTExMzE4LCJpYXQiOjE3NDUwNzUzMTgsImp0aSI6ImExZTc2MzVmYjkxZDRiMDFiN2M5ZDAyZDQ5YTZjMGQ5IiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJhZG1pbiJ9.zWE6VeGwQK_biLs90XiPNO3C7QZKcYHE1kCgFpIKTZw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "content",
+									"value": "This is a changed post",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{$server}}/posts/2/update/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"posts",
+								"2",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1MTExMzE4LCJpYXQiOjE3NDUwNzUzMTgsImp0aSI6ImExZTc2MzVmYjkxZDRiMDFiN2M5ZDAyZDQ5YTZjMGQ5IiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJhZG1pbiJ9.zWE6VeGwQK_biLs90XiPNO3C7QZKcYHE1kCgFpIKTZw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/posts/2/delete/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"posts",
+								"2",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post Likes",
+			"item": [
+				{
+					"name": "Add/Remove Like",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1MTIwNjcyLCJpYXQiOjE3NDUwODQ2NzIsImp0aSI6IjE1OWY0N2VjNzIyYzRlNDhhZDgzODY1OGY4ODVmNTI0IiwidXNlcl9pZCI6NiwidXNlcm5hbWUiOiJ1c2VyMSJ9.C4bCXKoZy019E7cdgymCNZXIeJibWFBkx_CDeG2e7Ws",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/posts/3/like/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"posts",
+								"3",
+								"like",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post Comments",
+			"item": [
+				{
+					"name": "Create Post Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1MTcwMzAyLCJpYXQiOjE3NDUxMzQzMDIsImp0aSI6IjQyZDA3MzIwYzRjZTQ0ODI4NzFjNzFlNTRiYTFkY2ZiIiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJhZG1pbiJ9.wUFr3L9juxqe0AGjh1QjtxcVEmqiAmh76awvKbhtYuM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "content",
+									"value": "Testing comment",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{$server}}/posts/3/comment/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"posts",
+								"3",
+								"comment",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Follow",
+			"item": [
+				{
+					"name": "Toggle Follow",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1MTcwMzAyLCJpYXQiOjE3NDUxMzQzMDIsImp0aSI6IjQyZDA3MzIwYzRjZTQ0ODI4NzFjNzFlNTRiYTFkY2ZiIiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJhZG1pbiJ9.wUFr3L9juxqe0AGjh1QjtxcVEmqiAmh76awvKbhtYuM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{$server}}/relations/toggle-follow/6/",
+							"host": [
+								"{{$server}}"
+							],
+							"path": [
+								"relations",
+								"toggle-follow",
+								"6",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
